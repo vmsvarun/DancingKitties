@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +8,7 @@ body {
   overflow: hidden;
   font-family: 'Trebuchet MS', sans-serif;
   position: relative;
+  padding: clamp(16px, 4vw, 48px);
 }
 
 .stars {
@@ -153,6 +154,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .tagline {
@@ -176,7 +179,7 @@ body {
 .kitty {
   width: 150px;
   height: 150px;
-  margin: 40px;
+  margin: 24px;
   background: #fff1f7;
   border-radius: 55% 55% 60% 60%;
   position: relative;
@@ -410,6 +413,78 @@ body {
   50%  { transform: rotate(-6deg) scale(1.05); }
   75%  { transform: rotate(6deg) scale(1.05); }
   100% { transform: rotate(0deg) scale(1); }
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 32px 16px;
+    overflow-y: auto;
+  }
+
+  .playground {
+    gap: 24px;
+  }
+
+  .kitty-row {
+    gap: 16px;
+  }
+
+  .kitty {
+    width: 130px;
+    height: 130px;
+    margin: 12px;
+  }
+
+  .kitty.daddy {
+    width: 230px;
+    height: 230px;
+  }
+
+  .kitty.daddy .eye.left {
+    left: 48px;
+  }
+
+  .kitty.daddy .eye.right {
+    right: 48px;
+  }
+}
+
+@media (max-width: 540px) {
+  body {
+    padding: 24px 12px 48px;
+    align-items: flex-start;
+  }
+
+  .kitty-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .kitty {
+    width: 120px;
+    height: 120px;
+    margin: 8px 0;
+  }
+
+  .kitty.daddy {
+    width: 190px;
+    height: 190px;
+  }
+
+  .kitty.daddy .eye.left {
+    left: 42px;
+  }
+
+  .kitty.daddy .eye.right {
+    right: 42px;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding: 0 12px;
+  }
 }
 
 .glow {
